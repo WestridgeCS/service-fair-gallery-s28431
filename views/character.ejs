@@ -1,29 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><%= title %></title>
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <main class="wrap">
-    <a class="link" href="/">← Back</a>
 
-    <section class="card">
-      <h1><%= character.name %></h1>
+<main>
 
-      <p><span class="label">Type:</span> <%= character.type %></p>
-      <p><span class="label">Trait:</span> <%= character.trait %></p>
+<a href="/">← Back to Projects</a>
 
-      <div class="row">
-        <a class="link" href="/characters/<%= character._id %>/edit">Edit</a>
+<div class="cardsub">
+  <h1><%= project.title %></h1>
+  <h3><%= project.subtitle %> ~ <%= project.ctsorcap%></h3>
+  <p><%= project.description %></p>
+</div>
 
-        <form action="/characters/<%= character._id %>/delete" method="post" class="inline">
-          <button class="danger" type="submit">Delete</button>
-        </form>
-      </div>
-    </section>
-  </main>
+</main>
+
 </body>
 </html>
+
