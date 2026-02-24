@@ -1,39 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><%= title %></title>
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <main class="wrap">
-    <a class="link" href="/characters/<%= character._id %>">← Cancel</a>
 
-    <section class="card">
-      <h1>Edit Character</h1>
+<main>
 
-      <form action="/characters/<%= character._id %>" method="post" class="form">
-        <label>Name</label>
-        <input name="name" maxlength="40" value="<%= character.name %>" required />
+<a href="/projects/<%= project._id%>/own">← Cancel</a>
 
-        <label>Type</label>
-        <select name="type" required>
-          <% types.forEach(t => { %>
-            <option value="<%= t %>" <%= character.type === t ? 'selected' : '' %>><%= t %></option>
-          <% }) %>
-        </select>
+<h1>Edit Project</h1>
 
-        <label>Trait</label>
-        <select name="trait" required>
-          <% traits.forEach(tr => { %>
-            <option value="<%= tr %>" <%= character.trait === tr ? 'selected' : '' %>><%= tr %></option>
-          <% }) %>
-        </select>
+<form action="/projects/<%= project._id %>" method="POST">
+  <label>Title</label>
+  <input 
+    name="title" 
+    value="<%= project.title %>" 
+    required 
+  />
 
-        <button type="submit">Save</button>
-      </form>
-    </section>
-  </main>
+  <label>Subtitle</label>
+  <input 
+    name="subtitle" 
+    value="<%= project.subtitle %>" 
+    required 
+  />
+  
+  <label>CTS or CAP</label>
+  <input 
+    name="ctsorcap" 
+    value="<%= project.ctsorcap %>" 
+    required 
+  />
+
+  <label>Description</label>
+  <textarea 
+    name="description" 
+    class="desc"
+    required
+  ><%= project.description %></textarea>
+
+  <button type="submit">Save Changes</button>
+</form>
+
+<form action="/projects/<%= project._id %>/delete" method="POST">
+  <button type="submit">Delete Project</button>
+</form>
+
+</main>
+
 </body>
 </html>
+

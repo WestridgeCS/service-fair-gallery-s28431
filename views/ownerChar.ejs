@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<main>
+
+<a href="/projectOWN">← Back to Projects</a>
+
+<div class="cardsub">
+  <h1><%= project.title %></h1>
+  <h3><%= project.subtitle %> ~ <%= project.ctsorcap %></h3>
+  <p><%= project.description %></p>
+
+  <hr>
+
+  <a href="/projects/<%= project._id %>/edit">Edit</a>
+
+  <form action="/projects/<%= project._id %>/delete" method="POST">
+    <button type="submit">Delete</button>
+  </form>
+</div>
+
+</main>
+</body>
+</html>
+

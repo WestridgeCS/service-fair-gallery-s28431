@@ -22,6 +22,17 @@
 </form>
 </div>
 
+<div class="create">
+<h2>Create a Project</h2>
+<form class="createform"action="/projects" method="POST">
+  <input name="title" placeholder="Project Title" required />
+  <input name="subtitle" placeholder="Subtitle" required />
+  <input name="ctsorcap" placeholder="CAP" required />
+  <textarea name="description" placeholder="Project Description" class="desc" required></textarea>
+  <button type="submit">Create Project</button>
+</form>
+</div>
+
 <div class="projects">
 <h2>All Projects</h2>
 
@@ -31,7 +42,7 @@
 
 <div class="cards">
   <% projects.forEach(project => { %>
-    <a href="/projects/<%= project._id%>">
+    <a href="/projects/<%= project._id%>/own">
       <div class="card">
         <h3>
             <%= project.title %>
@@ -44,9 +55,15 @@
 </div>
 </div>
 
-<a href="/projectOWN">super well hidden create and edit page</a>
 
 </main>
 
 </body>
 </html>
+
+
+
+
+
+
+
