@@ -114,3 +114,14 @@ input{
   margin: 20px auto;
   border-radius:20px;
 }
+
+.wimg{
+  width:100px;
+  border-radius:4px;
+  font-size:10px;
+}
+
+.desc{
+  min-width:400px;
+  min-height: 200px;
+}

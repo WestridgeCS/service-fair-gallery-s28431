@@ -82,8 +82,26 @@ router.get('/projects/:id', async (req, res, next) => {
 
     res.render('character', {
       title: project.title,
-      project
+      project,
+      note: project.note,
     });
+
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post('/projects/:id/note', async (req, res, next) => {
+  try {
+    const project = await Project.findById(req.params.id);
+    const {note} = req.body;
+
+     await Project.findByIdAndUpdate(req.params.id, {
+      $push: { note: note }
+    });
+
+    res.redirect(`/projects/${req.params.id}`);
+
   } catch (err) {
     next(err);
   }
@@ -141,6 +159,7 @@ router.post('/projects/:id', async (req, res, next) => {
   }
 });
 
+
 /*
   DELETE PROJECT
 */
@@ -153,11 +172,3 @@ router.post('/projects/:id/delete', async (req, res, next) => {
   }
 });
 
-
-// TODO
-// I probs wont have time to get to the rest of this at the point...
-// - Debug
-// - Touch ups
-//I also want it to be possible to sort by name (like not title)
-//Also if I have extra time I want to figure out adding images
-//Also also by CAP vs CTS sorting if I have EXTRA EXTRA TIME

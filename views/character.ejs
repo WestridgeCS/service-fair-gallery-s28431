@@ -14,6 +14,31 @@
   <h1><%= project.title %></h1>
   <h3><%= project.subtitle %> ~ <%= project.ctsorcap%></h3>
   <p><%= project.description %></p>
+
+  <hr>
+
+  <h3>Add a note !!</h3>
+  <form action="/projects/<%= project._id %>/note" method="POST">
+  <textarea 
+    name="note" 
+    required
+    placeholder=""
+  ></textarea>
+  <button type="submit">Save Changes</button>
+</form>
+
+  <hr>
+  
+  <h3>Other notes</h3>
+
+  <% if (project.note.length === 0) { %>
+  <p>No notes yet.</p>
+  <% } else { %>
+    <% project.note.forEach(function(n) { %>
+      <%= n %><hr>
+    <% }) %>
+  <% } %>
+
 </div>
 
 </main>

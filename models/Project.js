@@ -26,6 +26,10 @@ const projectSchema = new mongoose.Schema(
       trim: true,
       maxlength: 4
     },
+    note: {
+      type: [String],
+      default: []
+    },
   },
   { timestamps: true }
 );
